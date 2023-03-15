@@ -1,51 +1,53 @@
 import './css/styles.css';
+import { fetchCountries } from './fetchCountries';
 
 const DEBOUNCE_DELAY = 300;
 
 const form = document.getElementById('#search-box');
+const countryList = document.querySelector('.country-list');
+const countryInfo = document.querySelector('.country-info');
 
-fetchCountries
-  .then(response => {
-    const countriesData = response.json();
-    console.log(countriesData);
-    return countriesData;
-  })
-  .then(countries => {
-    console.log(countries);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+const COUNTRY_NAME_URL = 'https://restcountries.com/v3.1/all/name';
 
-//   const fetchUsersBtn = document.querySelector(".btn");
-// const userList = document.querySelector(".user-list");
+// form.addEventListener('input', event => {
 
-// fetchUsersBtn.addEventListener("click", () => {
-//   fetchUsers()
-//     .then((users) => renderUserList(users))
-//     .catch((error) => console.log(error));
 // });
 
-// function fetchUsers() {
-//   return fetch("https://jsonplaceholder.typicode.com/users").then(
-//     (response) => {
-//       if (!response.ok) {
-//         throw new Error(response.status);
-//       }
-//       return response.json();
-//     }
-//   );
-// }
+function showCountries(countries) {
+  let countryListMarkup = '';
+  const params = new URLSearchParams({
+    name: name.official,
+    capital: capital,
+    population: population,
+    flags: flags,
+    languages: [],
+  });
+  fetch('https://restcountries.com/v3.1/all' + '/' + params)
+    .then(response => response.json())
+    .then(countries => {
+      country.forEach(country => {
+        countryListMarkup += `<li>
+        <h3>${country.name.official}</h3>
+        <h4>${country.flags}</h4>
+        <h4>${country.capital}</h4>
+        <h4>${country.population}</h4>
+        <h4>${country.languages}</h4>
+      </li>`;
+      });
+      countryInfo.innerHTML = countryListMarkup;
+    });
+}
 
-// function renderUserList(users) {
-//   const markup = users
-//     .map((user) => {
-//       return `<li>
-//           <p><b>Name</b>: ${user.name}</p>
-//           <p><b>Email</b>: ${user.email}</p>
-//           <p><b>Company</b>: ${user.company.name}</p>
-//         </li>`;
-//     })
-//     .join("");
-//   userList.innerHTML = markup;
-// }
+function fetchCountries(name) {
+  fetch(COUNTRY_NAME_URL)
+    .then(response => {
+      response.json();
+    })
+    .then(countries => {
+      const countryName = countries;
+      console.log(countries);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
