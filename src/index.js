@@ -5,13 +5,11 @@ import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
 
-const form = document.getElementById('#search-box');
+const countryInput = document.getElementById('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-const COUNTRY_NAME_URL = 'https://restcountries.com/v3.1/all/name';
-
-// form.addEventListener('input', event => {
+// countryInput.addEventListener('input', event => {
 
 // });
 
@@ -40,16 +38,29 @@ function renderCountryList(countries) {
     });
 }
 
-function fetchCountries(name) {
-  fetch(COUNTRY_NAME_URL)
-    .then(response => {
-      response.json();
-    })
-    .then(countries => {
-      const countryName = countries;
-      console.log(countries);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+// function fetchCountries(name) {
+//   fetch('https://restcountries.com/v3.1/name/')
+//     .then(response => {
+//       response.json();
+//     })
+//     .then(countries => {
+//       const countryName = countries;
+//       console.log(countries);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// }
+
+function fetchCountries() {
+  const countryName =
+    'https://restcountries.com/v3.1/name/' +
+    countryInput.value.trim() +
+    '?fields=name,capital,population,flags,languages';
+  return fetch(`${countryName}`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 }
