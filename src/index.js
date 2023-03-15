@@ -15,7 +15,7 @@ const COUNTRY_NAME_URL = 'https://restcountries.com/v3.1/all/name';
 
 // });
 
-function showCountries(countries) {
+function renderCountryList(countries) {
   let countryListMarkup = '';
   const params = new URLSearchParams({
     name: name.official,
@@ -24,7 +24,7 @@ function showCountries(countries) {
     flags: flags,
     languages: [],
   });
-  fetch('https://restcountries.com/v3.1/all' + '/' + params)
+  fetch(fetchCountries + '/' + params)
     .then(response => response.json())
     .then(countries => {
       country.forEach(country => {
