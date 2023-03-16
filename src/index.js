@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './fetchCountries.js';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 
@@ -30,13 +30,13 @@ function fetchCountries(name) {
 
 function renderCountry() {
   const markup = countries
-    .map(country => {
+    .map(({ name.official, capital, population, flags, languages }) => {
       return `<div class="country-card">
-          <p>${country.name.official}</p>
-          <p>${country.capital}</p>
-          <p>${country.population}</p>
-          <p>${country.flags}</p>
-          <p>${country.languages}</p>
+          <p>${official}</p>
+          <p>${capital}</p>
+          <p>${population}</p>
+          <p>${flags}</p>
+          <p>${languages}</p>
         </div>`;
     })
     .join('');
