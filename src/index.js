@@ -42,3 +42,13 @@ function renderCountry() {
     .join('');
   countryInfo.innerHTML = markup;
 }
+
+if (data.length > 10) {
+  return Notiflix.Notify.info(
+    'Too many matches found. Please enter a more specific name.'
+  );
+} else if (data.length < 10 || data.length > 2) {
+  return renderCountry();
+} else if (data.length === 0) {
+  Notiflix.Notify.warning('Oops, there is no country with that name');
+}
