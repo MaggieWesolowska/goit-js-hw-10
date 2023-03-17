@@ -10,3 +10,5 @@ export function fetchCountries(name) {
     response.json();
   });
 }
+
+// https://restcountries.com/v3.1/all?fields=name,capital,population,flags,languages
