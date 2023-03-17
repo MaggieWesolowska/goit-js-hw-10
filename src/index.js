@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { fetchCountries } from './fetchCountries.js';
+import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 
@@ -47,9 +47,9 @@ function renderCountry(countries) {
         return `<div class="country-card">
       <img class="img-svg" src="${country.flags.svg}">
           <p>${country.name.official}</p>
-          <p>${country.capital[0]}</p>
-          <p>${country.population}</p>
-          <p>${Object.values(country.languages)}</p>
+          <p>Capital: ${country.capital[0]}</p>
+          <p>Population: ${country.population}</p>
+          <p>Languages: ${Object.values(country.languages)}</p>
         </div>`;
       })
       .join('');
