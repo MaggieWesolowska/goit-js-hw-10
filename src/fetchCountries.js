@@ -7,7 +7,7 @@ export function fetchCountries(name) {
     if (!response.ok) {
       throw new Error(response.status);
     }
-    response.json();
+    return response.json();
   });
 }
 //working link to source:
