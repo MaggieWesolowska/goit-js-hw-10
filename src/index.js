@@ -18,7 +18,7 @@ countryInput.addEventListener(
         console.log(countries);
       })
       .catch(error => {
-        Notiflix.Notify.warning('Oops, there is no country with that name');
+        Notiflix.Notify.failure('Oops, there is no country with that name');
         countryList.innerHTML = '';
         countryInfo.innerHTML = '';
       });
