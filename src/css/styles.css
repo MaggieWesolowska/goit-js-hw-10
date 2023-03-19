@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -16,31 +18,49 @@ body {
   font: inherit;
   padding: 8px;
   max-width: 320px;
-  margin-bottom: 16px;
+  margin: 20px 20px;
 }
 
 .country-list {
   list-style: none;
-  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .list-item {
+  display: flex;
+  align-items: center;
   font-size: medium;
+  padding-bottom: 5px;
 }
 
 .list-image {
-  display: block;
-  width: 50px;
-  height: 30px;
+  padding-right: 10px;
 }
 
-p {
-  font-size: medium;
+.country-card {
+  margin-left: 20px;
 }
 
 .card-item {
-  font-size: larger;
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-image {
+  padding-right: 10px;
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+p {
+  margin-bottom: 10px;
+}
+
+text {
+  font-weight: bold;
+  padding-right: 5px;
 }
