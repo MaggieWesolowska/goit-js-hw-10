@@ -40,7 +40,7 @@ h1 {
   display: flex;
   align-items: center;
   font-size: medium;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 .list-image {
@@ -54,7 +54,7 @@ h1 {
 .card-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .card-image {
@@ -63,10 +63,10 @@ h1 {
 
 .card-title {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: bolder;
 }
-p {
-  margin-bottom: 10px;
+.card-text {
+  margin-top: 10px;
 }
 
 text {

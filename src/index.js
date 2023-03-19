@@ -55,9 +55,11 @@ function renderCountry(countries) {
           }" width="70" height="50">
           <p class="card-title">${country.name.official}</p>
         </div>
-          <p><text>Capital:</text>${country.capital[0]}</p>
-          <p><text>Population:</text>${country.population}</p>
-          <p><text>Languages:</text>${Object.values(country.languages)}</p>
+          <p class="card-text"><text>Capital:</text>${country.capital[0]}</p>
+          <p class="card-text"><text>Population:</text>${country.population}</p>
+          <p class="card-text"><text>Languages:</text>${Object.values(
+            country.languages
+          )}</p>
       </div>`;
       })
       .join('');
