@@ -53,7 +53,7 @@ function renderCountry(countries) {
           <img class="card-image" src="${
             country.flags.svg
           }" width="70" height="50">
-          <p class="card-title">${country.name.official}</p>
+          <p class="card-title">${country.name.common}</p>
         </div>
           <p class="card-text"><text>Capital:</text>${country.capital[0]}</p>
           <p class="card-text"><text>Population:</text>${country.population}</p>
