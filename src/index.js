@@ -55,9 +55,9 @@ function renderCountry(countries) {
           }" width="70" height="50">
           <p class="card-title">${country.name.common}</p>
         </div>
-          <p class="card-text"><text>Capital:</text>${country.capital[0]}</p>
-          <p class="card-text"><text>Population:</text>${country.population}</p>
-          <p class="card-text"><text>Languages:</text>${Object.values(
+          <p class="card-text"><b>Capital:</b> ${country.capital[0]}</p>
+          <p class="card-text"><b>Population:</b> ${country.population}</p>
+          <p class="card-text"><b>Languages:</b> ${Object.values(
             country.languages
           )}</p>
       </div>`;
